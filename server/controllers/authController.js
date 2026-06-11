@@ -1,25 +1,18 @@
-const User = require('../models/User')
+const authService = require('../services/authService')
+const
 
 const register = async (req, res) => {
     const { username, email, password } = req.body;
     try {
-        const userExists = await User.findOne({ email })
-        if (userExists){
-            return res.status(400).json({ message: "User already exists" });
-        }
-
-        const user = await User.create({ username, email, password })
-        return user.status(201).json({ message: "User registered successfully" })
+        const user = await authService.registerUser(username, email, password)
+        res.status(201).json({ user })
 
     } catch (error) {
-        res.status(500).json({ message: error.message },
+        res.status(400).json({ message: error.message },
             user
         );
     }
 
 }
 
-const login = async (req, res) => {
-    const { email, password } = req.body;
-}
-module.exports = { register, login };
+module.exports = { register };
