@@ -1,14 +1,16 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
     username: { type: String, required: true },
     email: { type: String, required: true },
-    password: { type: String, require: true },
-    joinedChannel:[{ type: mongoose.Schema.Types.ObjectId, ref:'Channel'}]
-},
- {
-    timestamps: true,
-  }
-)
-const useModel = mongoose.model("user", userSchema) 
-export default useModel
+    password: { type: String, required: true },
+    joinedChannel: [
+        { type: mongoose.Schema.Types.ObjectId, ref: "Channel" }
+    ]
+}, {
+    timestamps: true
+});
+
+const User = mongoose.model("User", userSchema);
+
+module.exports = User;

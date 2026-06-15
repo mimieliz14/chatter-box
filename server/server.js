@@ -3,6 +3,9 @@ const cors = require("cors")
 const dotenv = require("dotenv")
 const mongoose = require("mongoose")
 
+const authRoutes = require("./routes/authRoutes")
+const errorHandler = require("./middleware/errorHandler")
+
 dotenv.config()
 
 const app = express()
@@ -18,6 +21,9 @@ catch((err) => console.log("MongoDB error:", err))
 app.get("/", (req, res) => {
     res.send("ChatterBox API running")
 })
+
+app.use("/api/auth", authRoutes)
+app.use(errorHandler)
 
 
 const PORT = process.env.PORT || 5000;
