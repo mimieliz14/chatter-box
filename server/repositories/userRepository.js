@@ -17,7 +17,7 @@ const addJoinedChannel = async (userId, channelId) => {
             }
         },
         {
-            new: true
+            returnDocument: 'after'
         }
     )
 }
@@ -30,7 +30,7 @@ const removeJoinedChannel = async (userId, channelId) => {
             }
         },
         {
-            new: true
+            returnDocument: 'after'
         }
     )
 

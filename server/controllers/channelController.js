@@ -4,7 +4,7 @@ const createChannel = async (req, res, next) => {
 
     try {
         const { name, description } = req.body
-        const channel = channelService.createChannel(name, description,  req.user.userId)
+        const channel = await channelService.createChannel(name, description,  req.user.userId)
         return res.status(201).json({
             success: true,
             message: "Channel created successfully",
