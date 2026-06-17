@@ -1,7 +1,7 @@
 const userRepository = require("../repositories/userRepository")
-const bcrypt = require("bcryptjs")
 const AppError = require("../middleware/AppError")
 const { generateToken } = require("../helpers/jwtHelper")
+const { hashPassword, comparePassword } = require("../helpers/bcryptHelper");
 
 const registerUser = async (username, email, password) => {
     email = email.toLowerCase().trim();
@@ -11,7 +11,7 @@ const registerUser = async (username, email, password) => {
         throw new AppError("User already exist", 409)
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10)
+    const hashedPassword = await hashPassword(password);
 
     const user = await userRepository.createUser({
         username,
@@ -36,7 +36,7 @@ const loginUser = async (email, password) => {
         throw new AppError("User not found", 404);
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = await comparePassword(password, user.password);
 
     if (!isMatch) {
         throw new AppError("Invalid credentials", 401);
@@ -52,6 +52,4 @@ const loginUser = async (email, password) => {
     }
 
 }
-
-
 module.exports = { registerUser, loginUser }

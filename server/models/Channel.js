@@ -1,11 +1,36 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
-const channelSchema = new mongoose.Schema({
-    name: { type: String },
-    description: { type: String },
-    members: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
-}, { timestamps: true })
+const channelSchema = new mongoose.Schema(
+    {
+        name: {
+            type: String,
+            required: true,
+            trim: true,
+            unique: true
+        },
 
-const channelModel = mongoose.model("channel", channelSchema)
-export default channelModel
+        description: {
+            type: String,
+            default: ""
+        },
+
+        members: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "User"
+            }
+        ],
+
+        createdBy: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+            required: true
+        }
+    },
+    {
+        timestamps: true
+    });
+
+const channelModel = mongoose.model("Channel", channelSchema);
+
+module.exports = channelModel;

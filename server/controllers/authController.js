@@ -25,6 +25,7 @@ const loginUser = async (req, res, next) => {
         const { email, password } = req.body;
 
         const result = await authService.loginUser(email, password);
+        console.log("JWT SECRET (login):", process.env.JWT_SECRET);
 
         res.status(200).json({
             success: true,
@@ -39,6 +40,7 @@ const loginUser = async (req, res, next) => {
 
 const getProfile = async (req, res, next) => {
     try {
+         console.log("REQ USER:", req.user);
         res.status(200).json({
             success: true,
             data: { userId: req.user.userId }
