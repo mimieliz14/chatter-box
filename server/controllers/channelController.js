@@ -34,7 +34,7 @@ const getPublicChannels = async (req, res, next) => {
 const subscribeChannel = async (req, res, next) => {
     const { id } = req.params
     try {
-        const result = channelService.subscribeChannel(id, req.user.id)
+        const result = await channelService.subscribeChannel(id, req.user.userId)
         return res.status(200).json({
             success: true,
             ...result
@@ -46,9 +46,9 @@ const subscribeChannel = async (req, res, next) => {
 }
 
 const getChannelDetails = async (req, res, next) => {
-    const { id } = res.params
+    const { id } = req.params
     try {
-        const channel = channelService.getChannelDetails(id)
+        const channel = await channelService.getChannelDetails(id)
 
         return res.status(200).json({
             success: true,

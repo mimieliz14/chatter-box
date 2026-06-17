@@ -3,6 +3,7 @@ const userRepository = require("../repositories/userRepository")
 const AppError = require("../middleware/AppError")
 
 const createChannel = async (name, description, userId) => {
+    console.log("createChannel userId",userId)
     const channelExists = await channelRepository.findChannelByName(name)
     if (channelExists) {
         throw new AppError("Channel name already exists", 409)
