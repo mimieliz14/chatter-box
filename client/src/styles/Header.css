@@ -1,0 +1,82 @@
+.header {
+    height: 70px;
+    background: #344b4d;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.logo-icon {
+    font-size: 35px;
+    color: #a7d6d6;
+}
+
+
+.header-logo h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+
+.header-logo span {
+    font-size: 12px;
+    opacity: .7;
+}
+
+.header-menu {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+.header-menu:hover {
+    color: #a7d6d6;
+}
+.login-title h3 {
+
+    margin-top: 20px;
+
+    font-size: 20px;
+
+}
+.login-brand h1 {
+
+    margin: 0;
+
+    font-size: 28px;
+
+    color: white;
+
+}
+.login-icon {
+
+    font-size: 38px;
+
+    color: white;
+
+}
+.login-brand {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
