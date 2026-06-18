@@ -1,6 +1,6 @@
 .header {
     height: 70px;
-    background: #344b4d;
+    background: #264653;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -26,6 +26,7 @@
 .header-logo h2 {
     margin: 0;
     font-size: 22px;
+    color: white;
 }
 
 
@@ -33,6 +34,57 @@
     font-size: 12px;
     opacity: .7;
 }
+
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.header-actions a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 7px 12px;
+    border-radius: 8px;
+    transition: .2s;
+}
+
+.header-actions a:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #a7d6d6;
+}
+
+.username {
+    color: white;
+    font-weight: 600;
+}
+
+
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid #a7d6d6;
+    color: white;
+    padding: 7px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: .2s;
+}
+
+
+
+.logout-btn:hover {
+    background: #a7d6d6;
+    color: #344b4d;
+}
+
 
 .header-menu {
     background: transparent;
@@ -43,40 +95,55 @@
 }
 
 
+
 .header-menu:hover {
     color: #a7d6d6;
 }
+
 .login-title h3 {
-
     margin-top: 20px;
-
     font-size: 20px;
-
 }
+
+
+
 .login-brand h1 {
-
     margin: 0;
-
     font-size: 28px;
-
     color: white;
-
 }
+
+
+
 .login-icon {
-
     font-size: 38px;
-
     color: white;
-
 }
+
 .login-brand {
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     gap: 10px;
+}
 
+@media(max-width:700px) {
+    .header {
+        padding: 0 15px;
+    }
+
+    .header-logo h2 {
+        font-size: 18px;
+    }
+
+    .header-actions {
+        gap: 8px;
+    }
+
+    .header-actions a {
+        padding: 5px;
+    }
+    .username {
+        display: none;
+    }
 }

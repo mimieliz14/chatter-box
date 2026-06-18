@@ -2,7 +2,18 @@ const User = require("../models/User")
 
 
 const findUserByEmail = async (email) => {
-    return User.findOne({email});
+    return User.findOne({ email })
+}
+
+const findUserByUsernameOrEmail = async (identifier) => {
+
+    return User.findOne({
+        $or: [
+            { email: identifier },
+            { username: identifier }
+        ]
+    });
+
 };
 
 const createUser = async (userData) => {
@@ -10,7 +21,7 @@ const createUser = async (userData) => {
 }
 
 const addJoinedChannel = async (userId, channelId) => {
-console.log("userId", userId, "channelId",channelId)
+    console.log("userId", userId, "channelId", channelId)
 
     return await User.findByIdAndUpdate(userId,
         {
@@ -40,4 +51,4 @@ const removeJoinedChannel = async (userId, channelId) => {
 
 }
 
-module.exports = { findUserByEmail, createUser, addJoinedChannel, removeJoinedChannel }
+module.exports = { findUserByEmail, findUserByUsernameOrEmail, createUser, addJoinedChannel, removeJoinedChannel }

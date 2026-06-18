@@ -28,19 +28,24 @@ export default function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         setError('');
-
         try {
             const response = await loginUser(form);
-
-            const token = response.data.data.token;
-
-            login(token);
-
+            console.log("Login Server:", response.data);
+            const token = response.data?.data?.token;
+            const userData = {
+                id: response.data?.data?.userId,
+                username: response.data?.data?.username,
+                email: response.data?.data?.email
+            }
+            if (!token) {
+                throw new Error("No token received from server");
+            }
+            login(token, userData);
             nav('/');
 
         } catch (error) {
+            console.error("Error en login component:", error);
             setError(
                 error.response?.data?.message ||
                 'Login failed'

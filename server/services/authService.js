@@ -5,10 +5,16 @@ const { hashPassword, comparePassword } = require("../helpers/bcryptHelper");
 
 const registerUser = async (username, email, password) => {
     email = email.toLowerCase().trim();
-    const userExists = await userRepository.findUserByEmail(email)
+    username = String(username).trim();
+    const existingUser = await userRepository.findUserByUsernameOrEmail(email, username)
 
-    if (userExists) {
-        throw new AppError("User already exist", 409)
+    if (existingUser) {
+        if (existingUser.email === email) {
+            throw new AppError("Email already registered", 409)
+        }
+        if (existingUser.username === username) {
+            throw new AppError("Username already exist", 409)
+        }
     }
 
     const hashedPassword = await hashPassword(password);

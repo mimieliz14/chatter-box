@@ -47,7 +47,7 @@ const removeMemberFromChannel = async (channelId, userId) => {
             }
         },
         {
-            new: true
+            returnDocument: 'after'
         }
     )
 }
