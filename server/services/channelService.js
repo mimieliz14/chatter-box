@@ -46,7 +46,6 @@ const getChannelDetails = async (channelId) => {
 const unsubscribeChannel = async (channelId, userId) => {
     const channel = await channelRepository.findChannelById(channelId);
     if (!channel) {
-
         throw new AppError("Channel not found", 404);
 
     }
