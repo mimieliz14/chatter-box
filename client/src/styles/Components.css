@@ -1,0 +1,139 @@
+.channel-container{
+max-width:700px;
+min-width:150px;
+margin:2rem auto;
+background:#264653;
+padding:1.5rem 2rem;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,.25);
+color:white;
+font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+}
+
+.channel-title{
+font-size:1.9rem;
+margin-bottom:1rem;
+text-align:center;
+color:#a7d6d6;
+}
+
+.channel-form{
+display:flex;
+gap:1rem;
+margin-bottom:1.5rem;
+flex-wrap:wrap;
+}
+
+.channel-form-input{
+flex-grow:1;
+padding:.6rem 1rem;
+font-size:1rem;
+border-radius:8px;
+border:1px solid #a7d6d6;
+background:#315865;
+color:white;
+}
+
+.channel-form-input::placeholder{
+color:rgba(255,255,255,.6);
+}
+
+.channel-form-input:focus{
+outline:none;
+border-color:#a7d6d6;
+box-shadow:0 0 8px rgba(167,214,214,.4);
+}
+
+.channel-button{
+background:#a7d6d6;
+color:#344b4d;
+font-weight:600;
+padding:.6rem 1.5rem;
+border:none;
+border-radius:8px;
+cursor:pointer;
+transition:.2s;
+}
+
+.channel-button:hover{
+background:white;
+}
+
+.channel-list{
+padding:0;
+margin:0;
+}
+
+.channel-list li{
+list-style:none;
+margin-bottom:.6rem;
+background:#315865;
+border-radius:8px;
+}
+
+.channel-link{
+display:block;
+padding:.75rem 1rem;
+text-decoration:none;
+color:white;
+font-weight:600;
+border-radius:8px;
+transition:.2s;
+}
+
+.channel-link:hover{
+background:rgba(255,255,255,.12);
+color:#a7d6d6;
+}
+
+.message-item.self{
+background:#a7d6d6;
+color:#344b4d;
+border-top-right-radius:0;
+}
+
+.message-item.other{
+background:#315865;
+color:white;
+border-top-left-radius:0;
+}
+
+.message-timestamp{
+font-size:.75rem;
+color:#a7d6d6;
+margin-top:.25rem;
+}
+
+.send-input{
+flex-grow:1;
+padding:.7rem 1rem;
+border-radius:8px;
+border:1px solid #a7d6d6;
+background:#315865;
+color:white;
+}
+
+.send-input::placeholder{
+color:rgba(255,255,255,.6);
+}
+
+.send-input:focus{
+outline:none;
+border-color:#a7d6d6;
+box-shadow:0 0 8px rgba(167,214,214,.4);
+}
+
+.send-button{
+background:#a7d6d6;
+color:#344b4d;
+font-weight:700;
+border:none;
+border-radius:8px;
+padding:0 1.3rem;
+cursor:pointer;
+transition:.2s;
+}
+
+.send-button:hover{
+background:white;
+}
