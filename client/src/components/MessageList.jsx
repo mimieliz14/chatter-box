@@ -37,12 +37,14 @@ export default function MessageList({ messages }) {
                 const isSelf = currentUser?._id === msg.sender?._id
                 return (
                     <div key={msg._id || idx} className={`message-row ${isSelf ? 'self-row' : 'other-row'}`}>
-                        <div className={`message-item ${isSelf ? 'self' : 'other'}`}>
+                        <div className="message-meta">
                             <span className="message-sender">{msg.sender?.username ?? 'Unknown'}</span>
+                            <span className="message-timestamp">
+                                {msg.timestamp ? new Date(msg.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ''}
+                            </span>
+                        </div>
+                        <div className={`message-item ${isSelf ? 'self' : 'other'}`}>
                             <span className="message-content">{msg.content}</span>
-                            <div className="message-timestamp">
-                                {msg.timestamp ? new Date(msg.timestamp).toLocaleTimeString() : ''}
-                            </div>
                         </div>
                     </div>
                 );
