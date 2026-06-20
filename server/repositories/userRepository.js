@@ -21,7 +21,6 @@ const createUser = async (userData) => {
 }
 
 const addJoinedChannel = async (userId, channelId) => {
-    console.log("userId", userId, "channelId", channelId)
 
     return await User.findByIdAndUpdate(userId,
         {
